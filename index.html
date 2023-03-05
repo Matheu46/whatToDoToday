@@ -10,14 +10,23 @@
 </head>
 
 <body>
-  <h1>O que fazer hoje?</h1>
-  <ul id="list">
-    <li>
-      <input type="checkbox" name="tarefa" id="tarefa">
-      <label for="tarefa">Criar uma lista de tarefa</label>
-    </li>
-  </ul>
-  <input type="text" id="newTask" placeholder="Adicionar Tarefa">
+  <div class="header">
+    <h1>O que fazer hoje?</h1>
+  </div>
+  <div class="content">
+    <ul id="list">
+      <li>
+        <label for="tarefa">
+          <input type="checkbox" name="tarefa" id="tarefa">
+          <span class="checkmark"></span>
+          Criar uma lista de tarefa
+        </label>
+      </li>
+    </ul>
+
+    <input type="text" id="newTask" placeholder="Adicionar Tarefa">
+    <input type="button" class="adicionar" value="Adicionar">
+  </div>
 
   <script src="script.js"></script>
 </body>

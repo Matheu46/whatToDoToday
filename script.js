@@ -1,6 +1,12 @@
 const inputTask = document.querySelector('#newTask');
 const list = document.querySelector('#list');
-const id = 0;
+const addButton = document.querySelector('.adicionar');
+let id = 0;
+
+addButton.addEventListener('click', (e) => {
+  makeTask(inputTask.value);
+  inputTask.value = '';
+});
 
 inputTask.addEventListener('keyup', (event) => {
   if (event.code === 'Enter') {
@@ -18,18 +24,16 @@ const makeTask = (inputTask) => {
   const label = document.createElement('label');
   label.innerText = inputTask;
   label.htmlFor = id;
+  id++;
 
   li.appendChild(input);
   li.appendChild(label);
   list.appendChild(li);
 
-  li.addEventListener('click', () => {
-    const input = li.firstChild;
-
-    console.log(li.firstChild);
+  //Riscar a tarefa já realizada
+  input.addEventListener('click', () => {
+    li.classList.toggle('riscado');
+    // !input.checked ? (input.checked = true) : (input.checked = false);
+    console.log('teste');
   });
-};
-
-const taskDone = () => {
-  console.log('teste');
 };

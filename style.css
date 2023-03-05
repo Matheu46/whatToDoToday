@@ -1,4 +1,78 @@
-#list {
-  list-style: none;
+body, ul{
+  margin: 0;
+  padding: 0;
 }
 
+body{
+  background: #F0F6FE;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 1fr;
+  /* background: blue; */
+}
+
+.header {
+  background-color: #0A2342;
+  padding: 20px;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+}
+
+h1{
+  text-align: center;
+  font-size: 48px;
+  color: #F0F6FE;
+}
+.content {
+  margin: 50px auto;
+  display: grid;
+  max-width: 800px;
+  /* background: red; */
+}
+
+#list {
+  list-style: none;
+  max-width: 800px;
+}
+#list li{
+  padding: 10px 20px;
+  margin: 5px 0;
+  border-radius: 5px;
+  background: #4D966C;
+}
+/* #list li label{
+  margin-left: 10px;
+} */
+
+.riscado {
+  text-decoration: line-through;
+  background: rgba(77, 150, 108, 0.4) !important;
+  color: rgba(0, 0, 0, .3);
+}
+
+#newTask {
+  margin-top: 50px;
+  padding: 5px;
+}
+
+input {
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+input::after {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  background-color: #F0F6FE;
+  border-radius: 2px;
+}
+
+.adicionar {
+  display: block;
+  border: none;
+  padding: 10px;
+  background: #0A2342;
+  color:#F0F6FE;
+}
