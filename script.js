@@ -26,7 +26,11 @@ const makeTask = (inputTask) => {
   label.htmlFor = id;
   id++;
 
-  li.appendChild(input);
+  const span = document.createElement('span');
+  span.classList.add('checkmark');
+
+  label.appendChild(input);
+  label.appendChild(span);
   li.appendChild(label);
   list.appendChild(li);
 
