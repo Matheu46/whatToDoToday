@@ -35,9 +35,11 @@ h1{
   max-width: 800px;
 }
 #list li{
+  display: flex;
+  justify-content: space-between;
   margin: 10px 0;
+  padding-right: 20px;
   border-radius: 5px;
-
   border: #0A2342 solid 2px;
 }
 
@@ -53,8 +55,8 @@ h1{
 }
 
 label{
-  display: block;
   position: relative;
+  width: 100%;
   padding: 15px 20px 15px 35px;
   margin: 0 20px;
 }
@@ -114,6 +116,10 @@ label .checkmark:after {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+
+/* .delete{
+  height: 25px;
+} */
 
 .adicionar {
   display: block;
