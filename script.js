@@ -12,7 +12,7 @@ addButton.addEventListener('click', (e) => {
 
 inputTask.addEventListener('keyup', (event) => {
   if (event.code === 'Enter') {
-    makeTask(inputTask.value, false);
+    makeTask(inputTask.value, false, false);
     inputTask.value = '';
   }
 });
@@ -22,16 +22,18 @@ const listTasksInitiate = () => {
   if (tempArray) {
     tasksArray = JSON.parse(tempArray);
     tasksArray.forEach((task) => {
-      makeTask(task, true);
+      makeTask(task.task, true, task.done);
     });
   }
+  console.log(tasksArray);
 };
 
 //Criar a atividade
-const makeTask = (inputTask, begin) => {
+const makeTask = (inputTask, begin, done) => {
   if (!begin) {
-    tasksArray.push(inputTask);
+    tasksArray.push({ task: inputTask, done: false });
     localStorage.setItem('tarefas', JSON.stringify(tasksArray));
+    console.log(tasksArray);
   }
 
   const li = document.createElement('li');
@@ -57,20 +59,35 @@ const makeTask = (inputTask, begin) => {
   li.appendChild(button);
   list.appendChild(li);
 
+  //Checar se a tarefa já estava marcada com feita
+  if (done) {
+    riscar(li);
+    input.checked = true;
+  }
+
   //Riscar a tarefa já realizada
   input.addEventListener('click', () => {
     //---------------------- Fazer isso ---------------------------
     //talvez criar um objeto p/ salvar essa informação no localStorage
-    li.classList.toggle('riscado');
+    if (tasksArray[input.id].done) {
+      tasksArray[input.id].done = false;
+    } else {
+      tasksArray[input.id].done = true;
+    }
+    localStorage.setItem('tarefas', JSON.stringify(tasksArray));
+    riscar(li);
   });
 
   //Deletar atividade
   button.addEventListener('click', () => {
-    tasksArray.splice(tasksArray.indexOf(inputTask), 1);
-    console.log(tasksArray);
+    tasksArray.splice(tasksArray[input.id], 1);
     localStorage.setItem('tarefas', JSON.stringify(tasksArray));
     li.remove();
   });
+};
+
+const riscar = (li) => {
+  li.classList.toggle('riscado');
 };
 
 listTasksInitiate();
