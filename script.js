@@ -17,6 +17,7 @@ inputTask.addEventListener('keyup', (event) => {
   }
 });
 
+//Recuperar do localStarage
 const listTasksInitiate = () => {
   const tempArray = localStorage.getItem('tarefas');
   if (tempArray) {
@@ -45,8 +46,13 @@ const makeTask = (inputTask, begin, done) => {
   label.innerText = inputTask;
   label.htmlFor = id;
 
-  const button = document.createElement('button');
-  button.innerText = 'D';
+  const trashCanIcon = document.createElement('img');
+  trashCanIcon.src = './assets/trashCan.svg';
+
+  const deleteButton = document.createElement('button');
+  deleteButton.classList.add('deleteButton');
+  deleteButton.appendChild(trashCanIcon);
+  // deleteButton.innerText = 'D';
 
   id++;
 
@@ -56,7 +62,7 @@ const makeTask = (inputTask, begin, done) => {
   label.appendChild(input);
   label.appendChild(span);
   li.appendChild(label);
-  li.appendChild(button);
+  li.appendChild(deleteButton);
   list.appendChild(li);
 
   //Checar se a tarefa já estava marcada com feita
@@ -67,8 +73,6 @@ const makeTask = (inputTask, begin, done) => {
 
   //Riscar a tarefa já realizada
   input.addEventListener('click', () => {
-    //---------------------- Fazer isso ---------------------------
-    //talvez criar um objeto p/ salvar essa informação no localStorage
     if (tasksArray[input.id].done) {
       tasksArray[input.id].done = false;
     } else {
@@ -79,8 +83,10 @@ const makeTask = (inputTask, begin, done) => {
   });
 
   //Deletar atividade
-  button.addEventListener('click', () => {
-    tasksArray.splice(tasksArray[input.id], 1);
+  deleteButton.addEventListener('click', () => {
+    tasksArray.forEach(
+      (task, index) => task.task === inputTask && tasksArray.splice(index, 1),
+    );
     localStorage.setItem('tarefas', JSON.stringify(tasksArray));
     li.remove();
   });
