@@ -1,4 +1,4 @@
-body, ul{
+body, div, ul{
   margin: 0;
   padding: 0;
 }
@@ -13,7 +13,7 @@ body{
 
 .header {
   background-color: #0A2342;
-  padding: 20px;
+  padding: 20px 0px;
   border-bottom-left-radius: 100%;
   border-bottom-right-radius: 100%;
 }
@@ -27,12 +27,13 @@ h1{
   margin: 50px auto;
   display: grid;
   max-width: 800px;
-  /* background: red; */
 }
 
 #list {
   list-style: none;
+  min-width: 300px;
   max-width: 800px;
+
 }
 #list li{
   display: flex;
@@ -45,7 +46,6 @@ h1{
 
 .riscado {
   text-decoration: line-through;
-  background: rgba(77, 150, 108, 0.4) !important;
   color: rgba(0, 0, 0, .3);
 }
 
@@ -81,15 +81,15 @@ label{
 
 }
 
-/* On mouse-over, add a grey background color */
+/* On mouse-over, add a background color */
 label:hover input ~ .checkmark {
-  background-color: #ccc;
+  background-color:  rgba(77, 150, 108, .4);
 }
 
-/* When the checkbox is checked, add a blue background */
+/* When the checkbox is checked, add a background */
 label input:checked ~ .checkmark {
-  background-color:  rgba(77, 150, 108, 0.4);
-  border-color: #ccc;
+  /* background-color:  rgba(77, 150, 108, .4); */
+  border-color: rgba(77, 150, 108, 1);
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -118,17 +118,33 @@ label .checkmark:after {
 }
 
 .deleteButton {
-  background: none;
+  /* background: no-repeat right / contain url('./assets/trashCan.svg'); */
+  background: no-repeat right top  url('./assets/trashCan.svg');
   border: none;
+  width: 65px;
+  margin: 5px;
 }
-.deleteButton img {
-  height: 25px;
+
+
+.deleteButton:hover{
+  background-image: url('./assets/trashCanOpen.svg');
 }
+
+/* #newTask{
+  height: 20px;
+} */
 
 .adicionar {
   display: block;
   border: none;
+  height: 40px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
   padding: 10px;
   background: #0A2342;
   color:#F0F6FE;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: .1rem;
 }

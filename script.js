@@ -46,13 +46,12 @@ const makeTask = (inputTask, begin, done) => {
   label.innerText = inputTask;
   label.htmlFor = id;
 
-  const trashCanIcon = document.createElement('img');
-  trashCanIcon.src = './assets/trashCan.svg';
+  // const trashCanIcon = document.createElement('img');
+  // trashCanIcon.src = './assets/trashCan.svg';
 
   const deleteButton = document.createElement('button');
   deleteButton.classList.add('deleteButton');
-  deleteButton.appendChild(trashCanIcon);
-  // deleteButton.innerText = 'D';
+  // deleteButton.appendChild(trashCanIcon);
 
   id++;
 
