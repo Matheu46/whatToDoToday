@@ -17,6 +17,7 @@ O site foi desenvolvido utilizando HTML, CSS e JavaScript puro, sem a utilizaç�
 ## Melhorias futuras
 Algumas possíveis melhorias que pensei em fazer foram:
 
+- Adicionar botão para apagar todas as atividades existentes;
 - Adicionar opção para editar uma tarefa já existente;
 - Permitir que o usuário organize as tarefas de acordo com sua preferência (por exemplo, arrastando e soltando as tarefas na lista);
 - Implementar um sistema de login e permitir que as tarefas sejam salvas na nuvem, em vez de apenas no localStorage;
