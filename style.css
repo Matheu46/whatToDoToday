@@ -4,6 +4,7 @@ body, div, ul{
 }
 
 body{
+  overflow-x: hidden;
   background: #F0F6FE;
   display: grid;
   justify-content: center;
