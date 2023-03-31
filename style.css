@@ -51,8 +51,10 @@ h1{
 }
 
 #newTask {
+  height: 30px;
   margin-top: 50px;
   padding: 5px;
+  border:  #0A2342 solid 2px;
 }
 
 label{
